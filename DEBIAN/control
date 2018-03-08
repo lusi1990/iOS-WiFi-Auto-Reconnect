@@ -1,0 +1,10 @@
+Package: com.haxii.wifiautoconnect
+Name: wifiautoconnect
+Depends: python (>= 2.7.6-3), org.thebigboss.wifiutil (>= 0.0.1-98)
+Architecture: iphoneos-arm
+Description: haxii
+Maintainer: haxii
+Author: haxii
+Section: System
+Tag: role::hacker
+Version: 0.0.1-1+debug
