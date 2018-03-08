@@ -2,6 +2,7 @@
 import socket
 import subprocess
 import time
+import sys
 import logging
 from logging.handlers import RotatingFileHandler
 
@@ -48,6 +49,14 @@ def init_logging(file_uri, level=logging.INFO):
 
 
 if __name__ == '__main__':
+    ssid = sys.argv[1]
+    if not ssid:
+        print('set ssid')
+        sys.exit()
+    password = sys.argv[2]
+    if not password:
+        print('set password')
+        sys.exit()
     init_logging('/tmp/wifi_auto.log')
     logging.info('start')
     while True:
@@ -56,7 +65,7 @@ if __name__ == '__main__':
             logging.info('ip==%s', ip)
             if not ip:
                 logging.info('re connect')
-                popen_command(['wifiutil', 'associate', 'HAXII-4G', '-p', '12345678'])
+                popen_command(['wifiutil', 'associate', ssid, '-p', password])
         except Exception as e:
             logging.error(e)
         time.sleep(60)
